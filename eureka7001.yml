@@ -11,7 +11,7 @@ server:
 spring: 
    profiles: dev                            #开发环境
    application: 
-      name: config-eureka                   #应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+      name: SpringCloudDemo-eureka          #应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
 
 eureka:
    instance:
@@ -35,7 +35,7 @@ server:
 spring: 
    profiles: test                            #测试环境
    application: 
-      name: config-eureka                    #应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+      name: SpringCloudDemo-eureka           #应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
 
 eureka:
    instance:

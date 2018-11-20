@@ -11,7 +11,7 @@ server:
 spring: 
    profiles: dev                                              #开发环境
    application: 
-      name: config-provider                                   # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+      name: SpringCloudDemo-provider                          # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
    datasource:
       type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
       driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
@@ -57,7 +57,7 @@ server:
 spring: 
    profiles: test                                             #测试环境
    application: 
-      name: config-provider                                   # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+      name: SpringCloudDemo-provider                          # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
    datasource:
       type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
       driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
