@@ -1,0 +1,97 @@
+#注意：要保存为utf-8格式
+spring: 
+   profiles: 
+      active: 
+      - dev
+
+---
+server:
+   port: 8003
+  
+spring: 
+   profiles: dev                                              #开发环境
+   application: 
+      name: config-provider                                   # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+   datasource:
+      type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+      driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+      url: jdbc:mysql://localhost:3306/mscloud03              # 数据库名称
+      username: root
+      password: 123456
+      dbcp2:
+         min-idle: 5                                          # 数据库连接池的最小维持连接数
+         initial-size: 5                                      # 初始化连接数
+         max-total: 5                                         # 最大连接数
+         max-wait-millis: 200                                 # 等待连接获取的最大超时时间
+      #initialization-mode: always                            # 应用初使化时使用建表语句
+      #schema: classpath:sql/dept.sql                         # 运行建表语句
+      #data: classpath:sql/dept_data.sql                      # 运行插入数据的sql语句
+
+mybatis:
+   config-location: classpath:mybatis/mybatis.cfg.xml         # mybatis配置文件所在路径
+   type-aliases-package: com.jerry.springcloud.bean           # 所有Entity别名类所在包
+   mapper-locations:
+   - classpath:mybatis/mapper/**/*.xml                        # mapper映射文件
+
+eureka:
+   client:                                                    # 客户端注册进eureka服务列表内
+      service-url: 
+         #单机环境，微服务发布到eureka单机配置中
+         #defaultZone: http://localhost:7001/eureka  
+         #集群环境，微服务发布到eureka集群配置中
+         defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+   instance:
+      instance-id: dept8003-hystrix                           # 自定义服务名称信息
+      prefer-ip-address: true                                 # 访问路径显示IP地址
+      
+info:
+   app.name: jerry-SpringCloudDemo
+   company.name: www.baidu.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+
+---
+server:
+   port: 8003
+  
+spring: 
+   profiles: test                                             #测试环境
+   application: 
+      name: config-provider                                   # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+   datasource:
+      type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+      driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+      url: jdbc:mysql://localhost:3306/mscloud03              # 数据库名称
+      username: root
+      password: 123456
+      dbcp2:
+         min-idle: 5                                          # 数据库连接池的最小维持连接数
+         initial-size: 5                                      # 初始化连接数
+         max-total: 5                                         # 最大连接数
+         max-wait-millis: 200                                 # 等待连接获取的最大超时时间
+      #initialization-mode: always                            # 应用初使化时使用建表语句
+      #schema: classpath:sql/dept.sql                         # 运行建表语句
+      #data: classpath:sql/dept_data.sql                      # 运行插入数据的sql语句
+
+mybatis:
+   config-location: classpath:mybatis/mybatis.cfg.xml         # mybatis配置文件所在路径
+   type-aliases-package: com.jerry.springcloud.bean           # 所有Entity别名类所在包
+   mapper-locations:
+   - classpath:mybatis/mapper/**/*.xml                        # mapper映射文件
+
+eureka:
+   client:                                                    # 客户端注册进eureka服务列表内
+      service-url: 
+         #单机环境，微服务发布到eureka单机配置中
+         #defaultZone: http://localhost:7001/eureka  
+         #集群环境，微服务发布到eureka集群配置中
+         defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+   instance:
+      instance-id: dept8003-hystrix                           # 自定义服务名称信息
+      prefer-ip-address: true                                 # 访问路径显示IP地址
+      
+info:
+   app.name: jerry-SpringCloudDemo
+   company.name: www.163.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$

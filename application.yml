@@ -15,4 +15,4 @@ spring:
    application: 
       name: SpringCloudDemo-config-test
  
-#保存为utf-8格式
+#注意：要保存为utf-8格式

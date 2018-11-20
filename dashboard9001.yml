@@ -1,0 +1,23 @@
+#注意：要保存为utf-8格式
+spring: 
+   profiles: 
+      active: 
+      - dev
+
+---
+server:
+   port: 9001
+   
+spring: 
+   profiles: dev                            #开发环境
+   application: 
+      name: config-dashboard                #应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+
+---
+server:
+   port: 9001
+   
+spring: 
+   profiles: test                           #测试环境
+   application: 
+      name: config-dashboard                #应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
