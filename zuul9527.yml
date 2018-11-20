@@ -11,7 +11,7 @@ server:
 spring:
    profiles: dev                                               #开发环境
    application:
-      name: config-gateway                                     # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+      name: SpringCloudDemo-gateway                            # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
    
 eureka:
    client:                                                     # 客户端注册进eureka服务列表内
@@ -28,7 +28,7 @@ zuul:
    prefix: /jerry                                              # 设置前缀
    ignored-services: "*"                                       # 忽略原真实服务名，此处忽略所有. 单个具体，多个可以用"*"
    routes:                                                     # 路由映射
-      mydept.serviceId: springclouddemo-dept                   
+      mydept.serviceId: springclouddemo-provider                   
       mydept.path: /mydept/**
     
 info:
@@ -44,7 +44,7 @@ server:
 spring:
    profiles: test                                              #测试环境
    application:
-      name: config-gateway                                     # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
+      name: SpringCloudDemo-gateway                                     # 应用的名称，后续可以通过此名称查找到此服务, 注意：集群时，此处名称必须一致
    
 eureka:
    client:                                                     # 客户端注册进eureka服务列表内
@@ -61,7 +61,7 @@ zuul:
    prefix: /jerry                                              # 设置前缀
    ignored-services: "*"                                       # 忽略原真实服务名，此处忽略所有. 单个具体，多个可以用"*"
    routes:                                                     # 路由映射
-      mydept.serviceId: springclouddemo-dept                   
+      mydept.serviceId: springclouddemo-provider                   
       mydept.path: /mydept/**
     
 info:
